@@ -23,7 +23,6 @@ public class UserRegTest {
 			boolean result = object.validateFirstName("firstnameexample");
 			assertEquals(true, result);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

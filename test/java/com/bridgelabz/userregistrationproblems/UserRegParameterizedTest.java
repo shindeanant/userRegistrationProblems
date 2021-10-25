@@ -42,7 +42,6 @@ public class UserRegParameterizedTest {
 		try {
 			assertEquals(expected, object.validateEmail(input));
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
