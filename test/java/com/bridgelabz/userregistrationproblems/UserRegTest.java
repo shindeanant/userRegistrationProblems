@@ -107,7 +107,6 @@ public class UserRegTest {
 			boolean result = object.validatePassword("ExampleCorrectPassword123#");
 			assertEquals(true, result);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -119,7 +118,6 @@ public class UserRegTest {
 			boolean result = object.validatePassword("examplewrongpassword");
 			assertEquals(true, result);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

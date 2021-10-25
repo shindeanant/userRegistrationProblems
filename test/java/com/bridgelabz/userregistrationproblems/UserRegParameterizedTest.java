@@ -22,7 +22,9 @@ public class UserRegParameterizedTest {
 		object = new UserReg();
 	}
 
-	// Constructor
+	/*
+	 *  Constructor
+	 */
 	public UserRegParameterizedTest(String input, boolean expected) {
 		super();
 		this.input = input;
@@ -42,7 +44,6 @@ public class UserRegParameterizedTest {
 		try {
 			assertEquals(expected, object.validateEmail(input));
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
