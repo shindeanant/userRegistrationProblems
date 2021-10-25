@@ -52,6 +52,18 @@ public class UserReg {
 	}
 
 	/*
+	 * / Method for printing validate email output;
+	 */
+	public void emailTest(String email) {
+		System.out.print(email + "->");
+		if (validateEmail(email)) {
+			System.out.printf("Email Valid \n");
+		} else {
+			System.out.printf("Email Invalid \n");
+		}
+	}
+
+	/*
 	 * / This is the main function
 	 */
 	public static void main(String[] args) {
