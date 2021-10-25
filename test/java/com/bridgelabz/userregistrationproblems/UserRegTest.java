@@ -95,6 +95,7 @@ public class UserRegTest {
 			boolean result = object.validatePhone("123456789X");
 			assertEquals(true, result);
 		} catch (Exception e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

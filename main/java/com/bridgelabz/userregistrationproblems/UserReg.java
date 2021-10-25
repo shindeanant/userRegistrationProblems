@@ -1,114 +1,120 @@
 package com.bridgelabz.userregistrationproblems;
 
 import java.util.Scanner;
+import java.util.function.Predicate;
 import java.util.regex.Pattern;
 
 public class UserReg {
 	public static final Scanner sc = new Scanner(System.in);
 	public final String firstNamePattern = "^[A-Z]{1}[a-z]{2,}$";
 	public final String lastNamePattern = "^[A-Z]{1}[a-z]{2,}$";
-	public final String emailPattern = "[a-z0-9_]*[.a-z0-9_]*?@[a-z]*.[a-z]*[.a-z]?$";
+	public final String emailPattern = "[a-z0-9_+-]*(.[a-z0-9_+-]*?)@[a-z0-9]*.[a-z]*[a-z]*?$";
 	public final String phonePattern = "^[0-9]{2}[0-9]{10}$";
-	public final String passwordPattern = "^.{8,}";
+	public final String passwordPattern = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^&-+=()]).{8,}$";
 
-	/*
-	 * / This method checks if the entered first name is valid
-	 */
-	public boolean validateFirstName(String fname) {
-		Pattern pattern = Pattern.compile(firstNamePattern);
-		return pattern.matcher(fname).matches();
-	}
+	// This method checks if the entered first name is valid
+	public boolean validateFirstName(String fname) throws UserRegistrationException {
+		// Pattern pattern = Pattern.compile(FIRST_NAME_PATTERN);
+		// boolean result = pattern.matcher(fname).matches();
+		Predicate<String> validateFirstName1 = n -> n.matches(firstNamePattern);
+		boolean result = validateFirstName1.test(fname);
 
-	/*
-	 * / This method checks if the entered lawst name is valid
-	 */
-	public boolean validateLastName(String lname) {
-		Pattern pattern = Pattern.compile(firstNamePattern);
-		return pattern.matcher(lname).matches();
-	}
-
-	/*
-	 * / This method checks if the entered email is valid
-	 */
-	public boolean validateEmail(String email) {
-		Pattern pattern = Pattern.compile(emailPattern);
-		return pattern.matcher(email).matches();
-	}
-
-	/*
-	 * / This method checks if the entered phone number is valid
-	 */
-	public boolean validatePhone(String phone) {
-		Pattern pattern = Pattern.compile(phonePattern);
-		return pattern.matcher(phone).matches();
-	}
-
-	/*
-	 * / This method checks if the entered password is valid
-	 */
-	public boolean validatePassword(String password) {
-		Pattern pattern = Pattern.compile(passwordPattern);
-		return pattern.matcher(password).matches();
-	}
-
-	/*
-	 * / Method for printing validate email output;
-	 */
-	public void emailTest(String email) {
-		System.out.print(email + "->");
-		if (validateEmail(email)) {
-			System.out.printf("Email Valid \n");
+		if (result == true) {
+			return true;
 		} else {
-			System.out.printf("Email Invalid \n");
+			throw new UserRegistrationException("Enter Valid First Name");
+		}
+
+	}
+
+	// This method checks if the entered lawst name is valid
+	public boolean validateLastName(String lname) throws UserRegistrationException {
+		// Pattern pattern = Pattern.compile(LAST_NAME_PATTERN);
+		// boolean result = pattern.matcher(lname).matches();
+		Predicate<String> validateLast = n -> n.matches(lastNamePattern);
+		boolean result = validateLast.test(lname);
+		if (result == true) {
+			return true;
+		} else {
+			throw new UserRegistrationException("Enter Valid First Name");
 		}
 	}
 
-	/*
-	 * / This is the main function
-	 */
-	public static void main(String[] args) {
+	// This method checks if the entered email is valid
+	public boolean validateEmail(String email) throws UserRegistrationException {
+		// Pattern pattern = Pattern.compile(EMAIL_PATTERN);
+		// boolean result = pattern.matcher(email).matches();
+		Predicate<String> validateEmail = n -> n.matches(emailPattern);
+		boolean result = validateEmail.test(email);
+		if (result == true) {
+			return true;
+		} else {
+			throw new UserRegistrationException("Enter Valid First Name");
+		}
+	}
+
+	// This method checks if the entered phone number is valid
+	public boolean validatePhone(String phone) throws UserRegistrationException {
+		// Pattern pattern = Pattern.compile(PHONE_PATTERN);
+		// boolean result = pattern.matcher(phone).matches();
+		Predicate<String> validatePhone = n -> n.matches(phonePattern);
+		boolean result = validatePhone.test(phone);
+		if (result == true) {
+			return true;
+		} else {
+			throw new UserRegistrationException("Enter Valid First Name");
+		}
+	}
+
+	// This method checks if the entered password is valid
+	public boolean validatePassword(String password) throws UserRegistrationException {
+		// Pattern pattern = Pattern.compile(PASSWORD_PATTERN);
+		// boolean result = pattern.matcher(password).matches();
+		Predicate<String> validateFirstName1 = n -> n.matches(passwordPattern);
+		boolean result = validateFirstName1.test(password);
+		if (result == true) {
+			return true;
+		} else {
+			throw new UserRegistrationException("Enter Valid First Name");
+		}
+	}
+
+	// This is the main function
+	public static void main(String[] args) throws UserRegistrationException {
 
 		UserReg obj = new UserReg();
 		System.out.println("Enter First Name: ");
 		String fname = sc.next();
-		if (obj.validateFirstName(fname)) {
-			System.out.println("First Name Valid");
-		} else {
-			System.out.println("First Name Invalid");
-		}
+		sc.nextLine();
+		obj.validateFirstName(fname);
 
 		System.out.println("\nEnter Last Name: ");
 		String lname = sc.next();
-		if (obj.validateFirstName(lname)) {
-			System.out.println("Last Name Valid");
-		} else {
-			System.out.println("Last Name Invalid");
-		}
+		obj.validateFirstName(lname);
 
 		System.out.println("\nEnter Email: ");
 		sc.nextLine();
 		String email = sc.next();
-		if (obj.validateEmail(email)) {
-			System.out.println("Email Valid");
-		} else {
-			System.out.println("Email Invalid");
-		}
+		obj.validateEmail(email);
 
 		System.out.println("\nEnter Phone No with Country Code: ");
 		String phone = sc.next();
-		if (obj.validatePhone(phone)) {
-			System.out.println("Phone No. Valid");
-		} else {
-			System.out.println("Phone No. Invalid");
-		}
+		obj.validatePhone(phone);
 
-		System.out.println("\nEnter Password (Min 8 characters): ");
+		System.out.println(
+				"\nEnter Password (Min 8 characters with Atleast 1 Uppercase, 1 Numeric Digit, 1 Special Character): ");
 		String password = sc.next();
-		if (obj.validatePassword(password)) {
-			System.out.println("Password Valid");
-		} else {
-			System.out.println("Password Invalid");
-		}
-	}
+		obj.validatePassword(password);
 
+		System.out.println("\nSamples Emails to Test");
+		obj.validateEmail("abc@yahoo.com");
+		obj.validateEmail("abc-100@yahoo.com");
+		obj.validateEmail("abc.100@yahoo.com");
+		obj.validateEmail("abc111@abc.com");
+		obj.validateEmail("abc-100@abc.net");
+		obj.validateEmail("abc.100@abc.com.au");
+		obj.validateEmail("abc@1.com");
+		obj.validateEmail("abc@gmail.com.com");
+		obj.validateEmail("abc+100@gmail.com");
+	}
 }
