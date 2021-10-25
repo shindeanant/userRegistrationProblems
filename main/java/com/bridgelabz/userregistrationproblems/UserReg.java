@@ -9,23 +9,26 @@ public class UserReg {
 	public final String lastNamePattern = "^[A-Z]{1}[a-z]{2,}$";
 	public final String emailPattern = "[a-z0-9_]*[.a-z0-9_]*?@[a-z]*.[a-z]*[.a-z]?$";
 	public final String phonePattern = "^[0-9]{2}[0-9]{10}$";
+	public final String passwordPattern = "^.{8,}";
 
 	/*
-	 * This method checks if the entered first name is valid
+	 * / This method checks if the entered first name is valid
 	 */
 	public boolean validateFirstName(String fname) {
 		Pattern pattern = Pattern.compile(firstNamePattern);
 		return pattern.matcher(fname).matches();
 	}
 
-	// This method checks if the entered lawst name is valid
+	/*
+	 * / This method checks if the entered lawst name is valid
+	 */
 	public boolean validateLastName(String lname) {
 		Pattern pattern = Pattern.compile(firstNamePattern);
 		return pattern.matcher(lname).matches();
 	}
 
 	/*
-	 * This method checks if the entered email is valid
+	 * / This method checks if the entered email is valid
 	 */
 	public boolean validateEmail(String email) {
 		Pattern pattern = Pattern.compile(emailPattern);
@@ -33,7 +36,7 @@ public class UserReg {
 	}
 
 	/*
-	 * This method checks if the entered phone number is valid
+	 * / This method checks if the entered phone number is valid
 	 */
 	public boolean validatePhone(String phone) {
 		Pattern pattern = Pattern.compile(phonePattern);
@@ -41,7 +44,15 @@ public class UserReg {
 	}
 
 	/*
-	 * This is the main function
+	 * / This method checks if the entered password is valid
+	 */
+	public boolean validatePassword(String password) {
+		Pattern pattern = Pattern.compile(passwordPattern);
+		return pattern.matcher(password).matches();
+	}
+
+	/*
+	 * / This is the main function
 	 */
 	public static void main(String[] args) {
 
@@ -77,6 +88,14 @@ public class UserReg {
 			System.out.println("Phone No. Valid");
 		} else {
 			System.out.println("Phone No. Invalid");
+		}
+
+		System.out.println("\nEnter Password (Min 8 characters): ");
+		String password = sc.next();
+		if (obj.validatePassword(password)) {
+			System.out.println("Password Valid");
+		} else {
+			System.out.println("Password Invalid");
 		}
 	}
 
