@@ -7,9 +7,12 @@ import java.util.Collection;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
+@RunWith(Parameterized.class)
 public class UserRegParameterizedTest {
+
 	String input;
 	boolean expected;
 	UserReg object;
@@ -20,8 +23,8 @@ public class UserRegParameterizedTest {
 	}
 
 	// Constructor
-	public void UserRegistrationParameterisedTest(String input, boolean expected) {
-
+	public UserRegParameterizedTest(String input, boolean expected) {
+		super();
 		this.input = input;
 		this.expected = expected;
 
@@ -36,6 +39,11 @@ public class UserRegParameterizedTest {
 
 	@Test
 	public void emailTest() {
-		assertEquals(expected, object.validateEmail(input));
+		try {
+			assertEquals(expected, object.validateEmail(input));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }
