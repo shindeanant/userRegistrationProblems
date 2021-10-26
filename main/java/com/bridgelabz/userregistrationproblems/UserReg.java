@@ -1,6 +1,7 @@
 package com.bridgelabz.userregistrationproblems;
 
 import java.util.Scanner;
+
 import java.util.function.Predicate;
 import java.util.regex.Pattern;
 
@@ -12,7 +13,9 @@ public class UserReg {
 	public final String phonePattern = "^[0-9]{2}[0-9]{10}$";
 	public final String passwordPattern = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^&-+=()]).{8,}$";
 
-	// This method checks if the entered first name is valid
+	/*
+	 *  This method checks if the entered first name is valid
+	 */
 	public boolean validateFirstName(String fname) throws UserRegistrationException {
 		Predicate<String> validateFirstName1 = n -> n.matches(firstNamePattern);
 		boolean result = validateFirstName1.test(fname);
@@ -25,7 +28,9 @@ public class UserReg {
 
 	}
 
-	// This method checks if the entered lawst name is valid
+	/*
+	 *  This method checks if the entered lawst name is valid
+	 */
 	public boolean validateLastName(String lname) throws UserRegistrationException {
 		Predicate<String> validateLast = n -> n.matches(lastNamePattern);
 		boolean result = validateLast.test(lname);
@@ -36,7 +41,9 @@ public class UserReg {
 		}
 	}
 
-	// This method checks if the entered email is valid
+	/*
+	 *  This method checks if the entered email is valid
+	 */
 	public boolean validateEmail(String email) throws UserRegistrationException {
 		Predicate<String> validateEmail = n -> n.matches(emailPattern);
 		boolean result = validateEmail.test(email);
@@ -47,7 +54,9 @@ public class UserReg {
 		}
 	}
 
-	// This method checks if the entered phone number is valid
+	/*
+	 *  This method checks if the entered phone number is valid
+	 */
 	public boolean validatePhone(String phone) throws UserRegistrationException {
 		Predicate<String> validatePhone = n -> n.matches(phonePattern);
 		boolean result = validatePhone.test(phone);
@@ -58,7 +67,9 @@ public class UserReg {
 		}
 	}
 
-	// This method checks if the entered password is valid
+	/*
+	 *  This method checks if the entered password is valid
+	 */
 	public boolean validatePassword(String password) throws UserRegistrationException {
 		Predicate<String> validateFirstName1 = n -> n.matches(passwordPattern);
 		boolean result = validateFirstName1.test(password);
@@ -69,7 +80,9 @@ public class UserReg {
 		}
 	}
 
-	// This is the main function
+	/*
+	 *  This is the main function
+	 */
 	public static void main(String[] args) throws UserRegistrationException {
 
 		UserReg obj = new UserReg();
