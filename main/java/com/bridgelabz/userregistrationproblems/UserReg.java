@@ -14,8 +14,6 @@ public class UserReg {
 
 	// This method checks if the entered first name is valid
 	public boolean validateFirstName(String fname) throws UserRegistrationException {
-		// Pattern pattern = Pattern.compile(FIRST_NAME_PATTERN);
-		// boolean result = pattern.matcher(fname).matches();
 		Predicate<String> validateFirstName1 = n -> n.matches(firstNamePattern);
 		boolean result = validateFirstName1.test(fname);
 
@@ -29,8 +27,6 @@ public class UserReg {
 
 	// This method checks if the entered lawst name is valid
 	public boolean validateLastName(String lname) throws UserRegistrationException {
-		// Pattern pattern = Pattern.compile(LAST_NAME_PATTERN);
-		// boolean result = pattern.matcher(lname).matches();
 		Predicate<String> validateLast = n -> n.matches(lastNamePattern);
 		boolean result = validateLast.test(lname);
 		if (result == true) {
@@ -42,8 +38,6 @@ public class UserReg {
 
 	// This method checks if the entered email is valid
 	public boolean validateEmail(String email) throws UserRegistrationException {
-		// Pattern pattern = Pattern.compile(EMAIL_PATTERN);
-		// boolean result = pattern.matcher(email).matches();
 		Predicate<String> validateEmail = n -> n.matches(emailPattern);
 		boolean result = validateEmail.test(email);
 		if (result == true) {
@@ -55,8 +49,6 @@ public class UserReg {
 
 	// This method checks if the entered phone number is valid
 	public boolean validatePhone(String phone) throws UserRegistrationException {
-		// Pattern pattern = Pattern.compile(PHONE_PATTERN);
-		// boolean result = pattern.matcher(phone).matches();
 		Predicate<String> validatePhone = n -> n.matches(phonePattern);
 		boolean result = validatePhone.test(phone);
 		if (result == true) {
@@ -68,8 +60,6 @@ public class UserReg {
 
 	// This method checks if the entered password is valid
 	public boolean validatePassword(String password) throws UserRegistrationException {
-		// Pattern pattern = Pattern.compile(PASSWORD_PATTERN);
-		// boolean result = pattern.matcher(password).matches();
 		Predicate<String> validateFirstName1 = n -> n.matches(passwordPattern);
 		boolean result = validateFirstName1.test(password);
 		if (result == true) {
