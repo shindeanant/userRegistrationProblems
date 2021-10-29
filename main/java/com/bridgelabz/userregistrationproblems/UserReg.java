@@ -12,7 +12,7 @@ public class UserReg {
 	public final String emailPattern = "[a-z0-9_+-]*(.[a-z0-9_+-]*?)@[a-z0-9]*.[a-z]*[a-z]*?$";
 	public final String phonePattern = "^[0-9]{2}[0-9]{10}$";
 	public final String passwordPattern = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^&-+=()]).{8,}$";
-
+	
 	@FunctionalInterface
 	public interface UserRegistration<n> {
 		boolean validate(n param);
