@@ -5,6 +5,7 @@ import java.util.Scanner;
 import java.util.function.Predicate;
 import java.util.regex.Pattern;
 
+
 public class UserReg {
 	public static final Scanner sc = new Scanner(System.in);
 	public final String firstNamePattern = "^[A-Z]{1}[a-z]{2,}$";
@@ -12,11 +13,6 @@ public class UserReg {
 	public final String emailPattern = "[a-z0-9_+-]*(.[a-z0-9_+-]*?)@[a-z0-9]*.[a-z]*[a-z]*?$";
 	public final String phonePattern = "^[0-9]{2}[0-9]{10}$";
 	public final String passwordPattern = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^&-+=()]).{8,}$";
-	
-	@FunctionalInterface
-	public interface UserRegistration<n> {
-		boolean validate(n param);
-	}
 
 	/*
 	 * This method checks if the entered first name is valid
