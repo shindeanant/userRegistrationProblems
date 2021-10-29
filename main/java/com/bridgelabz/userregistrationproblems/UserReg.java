@@ -13,8 +13,13 @@ public class UserReg {
 	public final String phonePattern = "^[0-9]{2}[0-9]{10}$";
 	public final String passwordPattern = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^&-+=()]).{8,}$";
 
+	@FunctionalInterface
+	public interface UserRegistration<n> {
+		boolean validate(n param);
+	}
+
 	/*
-	 *  This method checks if the entered first name is valid
+	 * This method checks if the entered first name is valid
 	 */
 	public boolean validateFirstName(String fname) throws UserRegistrationException {
 		Predicate<String> validateFirstName1 = n -> n.matches(firstNamePattern);
@@ -29,7 +34,7 @@ public class UserReg {
 	}
 
 	/*
-	 *  This method checks if the entered lawst name is valid
+	 * This method checks if the entered lawst name is valid
 	 */
 	public boolean validateLastName(String lname) throws UserRegistrationException {
 		Predicate<String> validateLast = n -> n.matches(lastNamePattern);
@@ -42,7 +47,7 @@ public class UserReg {
 	}
 
 	/*
-	 *  This method checks if the entered email is valid
+	 * This method checks if the entered email is valid
 	 */
 	public boolean validateEmail(String email) throws UserRegistrationException {
 		Predicate<String> validateEmail = n -> n.matches(emailPattern);
@@ -55,7 +60,7 @@ public class UserReg {
 	}
 
 	/*
-	 *  This method checks if the entered phone number is valid
+	 * This method checks if the entered phone number is valid
 	 */
 	public boolean validatePhone(String phone) throws UserRegistrationException {
 		Predicate<String> validatePhone = n -> n.matches(phonePattern);
@@ -68,7 +73,7 @@ public class UserReg {
 	}
 
 	/*
-	 *  This method checks if the entered password is valid
+	 * This method checks if the entered password is valid
 	 */
 	public boolean validatePassword(String password) throws UserRegistrationException {
 		Predicate<String> validateFirstName1 = n -> n.matches(passwordPattern);
@@ -81,7 +86,7 @@ public class UserReg {
 	}
 
 	/*
-	 *  This is the main function
+	 * This is the main function
 	 */
 	public static void main(String[] args) throws UserRegistrationException {
 
